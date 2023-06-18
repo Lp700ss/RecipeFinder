@@ -263,10 +263,32 @@ const RecipeApp = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      {/* <button className="btn btn-primary" type="button">
-        <i className="bi bi-search"></i>
-      </button> */}
     </div>
+    <div className="card" style={{ width: '200px', padding: '10px' }}>
+  <div className="card-header">
+    <h2 className="card-title pt-4">Cart :</h2>
+  </div>
+  <div className="card-body pt-3">
+    <p className="card-text">Total Items: {cartItems.length}</p>
+    {cartItems.length === 0 ? (
+      <p className="card-text">Cart is empty</p>
+    ) : (
+      <ul className="list-group">
+        {cartItems.map((item) => (
+          <li className="list-group-item" key={item.id}>
+            {item.name}{' '}
+            <button className="btn btn-danger" onClick={() => handleRemoveFromCart(item)}>
+              Remove
+            </button>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</div>
+
+
+
   </div>
 </div>
 
@@ -325,22 +347,7 @@ const RecipeApp = () => {
 
       </div>
 
-      <h2>Cart</h2>
-      <p>Total Items: {cartItems.length}</p>
-      {cartItems.length === 0 ? (
-        <p>Cart is empty</p>
-      ) : (
-        <ul>
-          {cartItems.map((item) => (
-            <li key={item.id}>
-              {item.name}{' '}
-              <button className="btn btn-danger" onClick={() => handleRemoveFromCart(item)}>
-                Remove
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+   
     </div>
   );
 };
