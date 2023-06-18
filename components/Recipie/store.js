@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import {reducer1, reducer2 } from '../../pages/reducers/reducer';
+import {reducer1, reducer2 } from '../reducers/reducer';
 import { combineReducers } from '@reduxjs/toolkit';
 
 

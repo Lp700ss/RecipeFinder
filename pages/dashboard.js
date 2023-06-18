@@ -62,8 +62,10 @@ export default function Dashboard() {
             </button>
           </div>
         </nav>
-        <h3>{user.username}'s Profile</h3>
-        <RecipeApp/>
+        
+        <div className="container mt-4" style={{ paddingTop: '100px' }}>
+    <RecipeApp />
+  </div>
       </>
     );
   }

@@ -16,8 +16,8 @@ a {
   box-sizing: border-box;
 }
 
-
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -25,35 +25,44 @@ a {
   box-sizing: border-box;
   font-family: 'Work Sans', sans-serif;
 }
-a{
+
+a {
   text-decoration: none;
   color: inherit;
 }
-header{
+
+header {
   position: sticky;
   z-index: 30;
   top: 0;
 }
-nav{
+
+nav {
+  position: sticky; /* Add sticky positioning */
+  top: 0; /* Stick to the top */
   display: flex;
-  padding: 5px;
+  padding: 1px;
   justify-content: space-between;
   align-items: center;
-  background-color: #f1f1f1;
+  background-color: #111;
+  height: 50px; /* Adjust the height as desired */
 }
-.nav__menu-bar{
+
+.nav__menu-bar {
   display: flex;
   flex-direction: column;
   row-gap: 6px;
   cursor: pointer;
 }
-.nav__menu-bar div{
+
+.nav__menu-bar div {
   width: 40px;
   height: 2px;
-  background-color: black;
+  background-color: #fff;
   border-radius: 2px;
 }
-.nav__menu-list{
+
+.nav__menu-list {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -64,32 +73,38 @@ nav{
   padding: 24px 16px;
   transition: all 0.2s;
   min-height: calc(100vh - 60px);
-  background-color: #f1f1f1;
+  background-color: #111;
+  color: #fff;
 }
-.nav__menu-list.active{
+
+.nav__menu-list.active {
   right: 0;
 }
-.nav__link{
-  font-size: 18px; 
+
+.nav__link {
+  font-size: 18px;
   position: relative;
   transition: all 0.2s;
 }
 
-.nav__link:hover{
- font-weight: bold;
+.nav__link:hover {
+  font-weight: bold;
+  color: #f1f1f1; /* Add hover color */
 }
 
-.center{
+.center {
   min-height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 @media screen and (min-width: 768px) {
-  .nav__menu-bar{
+  .nav__menu-bar {
     display: none;
   }
-  .nav__menu-list{
+
+  .nav__menu-list {
     position: unset;
     flex-direction: row;
     min-height: fit-content;
@@ -97,18 +112,74 @@ nav{
     column-gap: 24px;
     align-items: center;
   }
-  .nav__link::before{
+
+  .nav__link::before {
     content: '';
     position: absolute;
     width: 0%;
     height: 6px;
     bottom: -16px;
     left: 0;
-    background-color: black;
+    background-color: #fff;
     transition: all 0.2s;
   }
-  
-  .nav__link:hover:before{
-   width: 100%;
+
+  .nav__link:hover:before {
+    width: 100%;
   }
+}
+
+
+.checkbox-label {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.checkbox-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 2px solid #333;
+}
+
+.checkbox-label:hover input ~ .checkbox-custom {
+  background-color: #ccc;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom {
+  background-color: #333;
+}
+
+.checkbox-label .checkbox-custom:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom:after {
+  display: block;
+}
+
+.checkbox-label .checkbox-custom:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
